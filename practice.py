@@ -89,15 +89,13 @@ def smallest_int(numbers):
         >>> smallest_int([]) is None
         True
     """
-    i = 0
+     
     for number in numbers:
-        if numbers[i] < numbers[i + 1]:
-            return number
-            i += i
-            print numbers[i]
-          
-        elif numbers == []:
+        if numbers == []:
             return None
+        else:
+            sorted_numbers = sorted(numbers)
+            return sorted_numbers[0]
 
 
 def largest_int(numbers):
@@ -119,7 +117,12 @@ def largest_int(numbers):
         True
     """
 
-    return 0
+    for number in numbers:
+        if numbers == []:
+            return None
+        else:
+            sorted_numbers = sorted(numbers)
+            return sorted_numbers[-1]
 
 
 def halvesies(numbers):
@@ -183,13 +186,10 @@ def sum_numbers(numbers):
         >>> sum_numbers([])
         0
     """
-
+    add = 0
     for number in numbers:
-        if numbers == []:
-            return 0
-        else:
-            add = number + number
-
+        add = add + number
+    return add
 
 def mult_numbers(numbers):
     """Return product (result of multiplication) of numbers in list.
@@ -211,7 +211,10 @@ def mult_numbers(numbers):
         1
     """
 
-    return None
+    multiply = 1
+    for number in numbers:
+        multiply = multiply * number
+    return multiply
 
 
 def join_strings(words):
@@ -231,7 +234,10 @@ def join_strings(words):
         ''
     """
 
-    return "Not the right thing"
+    join = ""
+    for word in words:
+        join = join + word
+    return join
 
 
 def average(numbers):
@@ -253,8 +259,11 @@ def average(numbers):
     (Think of the best way to handle an empty input list, though,
     a feel free to provide a good solution here.)
     """
+    add = 0 
 
-    return 0
+    for number in numbers:
+        add = add + number
+    return float(float(add)/float(len(numbers)))
 
 
 def join_strings_with_comma(words):
@@ -275,9 +284,14 @@ def join_strings_with_comma(words):
     """
 
     list_to_string = ""
+    i = 0
 
-    for item in words:
-        list_to_string.append(item)
+    for word in words:
+        if i != (len(words) - 1):
+            list_to_string = list_to_string + word + ", "
+            i = i + 1
+        else:
+            list_to_string = list_to_string + word
 
     return list_to_string
 
@@ -305,7 +319,8 @@ def reverse_list(items):
         ['apple', 'berry', 'cherry']
     """
 
-    return []
+    #for item in items:
+    return 0
 
 
 def reverse_list_in_place(items):
@@ -360,8 +375,15 @@ def duplicates(items):
         ['apple', 'apple', 'berry']
     """
 
-    return []
+    sortednums = sorted(items)
+    i = 0
+    doubles = []
 
+    for item in sortednums:
+        if sortednums[i] == sortednums[i+1]:
+            doubles.append(item)
+            i = i + 1
+    return doubles
 
 def find_letter_indices(words, letter):
     """Return list of indices where letter appears in each word.
@@ -390,7 +412,14 @@ def find_letter_indices(words, letter):
     `None`.)
     """
 
-    return []
+    indicies = []
+    i = 0
+
+    for word in words:
+        if word[i] == letter:
+            indicies.append(i)
+            i = i + 1
+    return indicies
 
 #####################################################################
 # END OF PRACTICE: You can ignore everything below.

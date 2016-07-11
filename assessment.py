@@ -45,8 +45,8 @@ def print_indices(items):
         2 Volvo
     """
 
-    for item in items:
-        print items.index(item), item
+    for count, item in enumerate(items):
+        print count, item
 
 
 def foods_in_common(foods1, foods2):
